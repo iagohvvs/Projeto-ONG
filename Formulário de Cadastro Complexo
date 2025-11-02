@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Voluntários | ONG Exemplo</title>
+    <meta name="description" content="Formulário completo para cadastro de voluntários, utilizando validação nativa e máscaras de input.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ONG Exemplo</h1>
+            <nav class="nav">
+                <a href="index.html">Início</a>
+                <a href="projetos.html">Projetos e Doação</a>
+                <a href="cadastro.html">Quero Ser Voluntário</a>
+                <a href="index.html#contato" class="btn btn-sucesso">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="cadastro-form" class="secao">
+            <div class="container">
+                <h2>Formulário de Cadastro de Voluntário</h2>
+                <p>Preencha os dados abaixo. Todos os campos são obrigatórios para a triagem.</p>
+                
+                <!-- O atributo 'novalidate' é REMOVIDO para que a VALIDAÇÃO NATIVA HTML5 funcione -->
+                <form class="form-cadastro" action="#" method="POST"> 
+                    
+                    <!-- 1. AGRUPAMENTO LÓGICO: Dados Pessoais -->
+                    <fieldset class="grupo-campos">
+                        <legend>Dados Pessoais e Contato</legend>
+
+                        <div class="form-row">
+                            <!-- Input Tipo Texto (Nome Completo) -->
+                            <div class="form-col">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required 
+                                       minlength="5" maxlength="100"> 
+                                <!-- Validação Nativa: required, minlength, maxlength -->
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Input Tipo E-mail -->
+                            <div class="form-col">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required> 
+                                <!-- Validação Nativa: required, pattern (automático para email) -->
+                            </div>
+                            <!-- Input Tipo Tel (Telefone) -->
+                            <div class="form-col">
+                                <label for="telefone">Telefone (com DDD)</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
+                                <!-- Máscara aplicada pelo JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                             <!-- Input Tipo Text (CPF) -->
+                            <div class="form-col">
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required 
+                                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                                <!-- Máscara e Validação Nativa: pattern -->
+                            </div>
+                            <!-- Input Tipo Date (Data de Nascimento) -->
+                            <div class="form-col">
+                                <label for="nascimento">Data de Nascimento</label>
+                                <input type="date" id="nascimento" name="nascimento" required>
+                                <!-- Validação Nativa: required, tipo date (valida formato) -->
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. AGRUPAMENTO LÓGICO: Endereço -->
+                    <fieldset class="grupo-campos">
+                        <legend>Endereço</legend>
+
+                        <div class="form-row">
+                            <!-- Input Tipo Text (CEP) -->
+                            <div class="form-col">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" placeholder="00000-000" required 
+                                       pattern="\d{5}-\d{3}">
+                                <!-- Máscara e Validação Nativa: pattern -->
+                            </div>
+                            <!-- Input Tipo Text (Endereço) -->
+                            <div class="form-col">
+                                <label for="endereco">Rua/Avenida</label>
+                                <input type="text" id="endereco" name="endereco" placeholder="Ex: Av. Principal" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Input Tipo Number (Número) -->
+                            <div class="form-col" style="flex: 0.5;">
+                                <label for="numero">Nº</label>
+                                <input type="number" id="numero" name="numero" placeholder="123" required min="1">
+                                <!-- Validação Nativa: required, tipo number, min -->
+                            </div>
+                            <!-- Input Tipo Text (Cidade) -->
+                            <div class="form-col">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" required>
+                            </div>
+                            <!-- Select (Estado) -->
+                            <div class="form-col" style="flex: 0.8;">
+                                <label for="estado">Estado</label>
+                                <select id="estado" name="estado" required>
+                                    <option value="" disabled selected>Selecione o Estado</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PR">Paraná</option>
+                                    <!-- Outros estados -->
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <button type="submit" class="btn btn-sucesso" style="width: 100%;">Finalizar Cadastro</button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ONG Exemplo. Voluntariado com Propósito.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
