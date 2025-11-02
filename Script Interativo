@@ -1,0 +1,119 @@
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+
+// =========================================================
+// 1. FUNÇÕES DE MÁSCARA PARA FORMULÁRIO
+// =========================================================
+
+function applyMask(inputElement, mask) {
+    inputElement.addEventListener('input', (event) => {
+        let value = inputElement.value.replace(/\D/g, ''); // Remove caracteres não numéricos inicialmente
+        let maskedValue = '';
+        let charIndex = 0;
+
+        for (let i = 0; i < mask.length; i++) {
+            const maskChar = mask[i];
+            const valueChar = value[charIndex];
+
+            if (!valueChar) break; // Termina se acabarem os caracteres do input
+
+            if (maskChar === '9') { // Espera um dígito (0-9)
+                maskedValue += valueChar;
+                charIndex++;
+            } else if (maskChar === 'A') { // Espera uma letra
+                if (/[a-zA-Z]/.test(valueChar)) {
+                    maskedValue += valueChar;
+                    charIndex++;
+                }
+            } else if (maskChar === '*') { // Espera qualquer caractere
+                maskedValue += valueChar;
+                charIndex++;
+            } else { // É um caractere de máscara (parêntese, traço, ponto)
+                maskedValue += maskChar;
+            }
+        }
+
+        inputElement.value = maskedValue;
+    });
+}
+
+/**
+ * Inicializa as máscaras nos inputs específicos
+ */
+function setupInputMasks() {
+    // Configuração das máscaras
+    const maskConfig = [
+        { selector: 'input[name="cpf"]', mask: '999.999.999-99' },
+        // Máscara para telefone (Fixo ou Celular - mais robusta)
+        { selector: 'input[name="telefone"]', mask: '(99) 99999-9999' }, 
+        { selector: 'input[name="cep"]', mask: '99999-999' },
+    ];
+
+    maskConfig.forEach(config => {
+        const input = document.querySelector(config.selector);
+        if (input) {
+            applyMask(input, config.mask);
+        }
+    });
+}
+
+
+// =========================================================
+// 2. LAZY LOADING
+// =========================================================
+
+function setupLazyLoading() {
+    // Seleciona todas as imagens que devem ser carregadas tardiamente
+    const lazyImages = document.querySelectorAll('img[data-src]');
+
+    // Verifica se a API Intersection Observer é suportada
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    // Move o valor de 'data-src' para o atributo 'src'
+                    lazyImage.src = lazyImage.dataset.src;
+                    
+                    // Se houver 'data-srcset' (para imagens responsivas), move para 'srcset'
+                    if (lazyImage.dataset.srcset) {
+                        lazyImage.srcset = lazyImage.dataset.srcset;
+                    }
+                    
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        // Observa cada imagem com lazy loading
+        lazyImages.forEach(lazyImage => {
+            lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Fallback simples para navegadores mais antigos (carrega todas as imagens)
+        lazyImages.forEach(lazyImage => {
+            lazyImage.src = lazyImage.dataset.src;
+        });
+    }
+}
+
+
+// =========================================================
+// 3. INICIALIZAÇÃO GERAL
+// =========================================================
+
+// Função principal que roda quando o DOM está completamente carregado
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Inicializa as máscaras de input (se a página atual tiver o formulário)
+    setupInputMasks();
+    
+    // 2. Inicializa o Lazy Loading para todas as imagens com data-src
+    setupLazyLoading();
+    
+    // 3. Verifica a configuração do Firebase (apenas um check no console)
+    if (firebaseConfig) {
+        console.log(`Firebase Configurado com app_id: ${appId}`);
+    } else {
+        console.warn("Firebase não configurado.");
+    }
+});
