@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Exemplo | Transformando o Futuro com Ação Social</title>
+    <meta name="description" content="Conheça a missão, visão e valores da ONG Exemplo. Nossa história, conquistas e como você pode nos apoiar.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- H1 é o principal título da página/site -->
+            <h1>ONG Exemplo</h1>
+            <nav class="nav">
+                <a href="index.html">Início</a>
+                <a href="projetos.html">Projetos e Doação</a>
+                <a href="cadastro.html">Quero Ser Voluntário</a>
+                <a href="#contato" class="btn btn-sucesso">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO HERO (Destaque Principal) -->
+        <section id="hero" class="secao">
+            <div class="container">
+                <!-- H2 é o título da seção principal -->
+                <h2>Construindo Pontes para um Mundo Melhor</h2>
+                <p>Nossa missão é promover o desenvolvimento social e a cidadania plena em comunidades vulneráveis.</p>
+                <!-- Imagem com Lazy Loading -->
+                <img src="https://placehold.co/1200x400/007bff/ffffff?text=CRIANCAS+FELIZES" 
+                     data-src="https://placehold.co/1200x400/007bff/ffffff?text=IMAGEM+PRINCIPAL+INSTITUCIONAL" 
+                     alt="Grupo de voluntários e pessoas sorrindo em um projeto social" 
+                     class="hero-img" loading="lazy">
+                <a href="projetos.html" class="btn btn-principal" style="margin-top: 20px;">Veja Nossos Projetos</a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO MISSÃO, VISÃO E VALORES (Área Institucional) -->
+        <section id="mvv" class="secao" style="background-color: #eef3f7;">
+            <div class="container">
+                <h2>Nossa Essência</h2>
+                <div class="cards-grid">
+                    <article class="card">
+                        <!-- H3 é o subtítulo dentro da seção -->
+                        <h3>Missão</h3>
+                        <p>Gerar impacto social positivo através da educação, sustentabilidade e inclusão digital.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Visão</h3>
+                        <p>Ser a principal referência em transformação social, com atuação reconhecida nacionalmente até 2030.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Valores</h3>
+                        <ul>
+                            <li>Transparência total</li>
+                            <li>Comprometimento com a causa</li>
+                            <li>Respeito e Dignidade</li>
+                            <li>Inovação e Crescimento</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO (Informações Obrigatórias) -->
+        <section id="contato" class="secao">
+            <div class="container">
+                <h2>Fale Conosco</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Informações de Contato</h3>
+                        <p><strong>E-mail:</strong> contato@ongexemplo.org</p>
+                        <p><strong>Telefone:</strong> (11) 98765-4321</p>
+                        <p><strong>Endereço:</strong> Rua da Cidadania, 123 - Centro, São Paulo - SP</p>
+                    </div>
+                    <div class="card">
+                        <h3>Siga-nos</h3>
+                        <p>Acompanhe nosso trabalho em tempo real e compartilhe esta causa.</p>
+                        <!-- Links fictícios para redes sociais -->
+                        <a href="#" class="btn btn-principal" target="_blank" style="margin-right: 10px;">Facebook</a>
+                        <a href="#" class="btn btn-principal" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ONG Exemplo. CNPJ: 00.000.000/0001-00. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
