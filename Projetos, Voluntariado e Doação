@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Sociais | Voluntariado e Doações - ONG Exemplo</title>
+    <meta name="description" content="Descubra nossos projetos de impacto, como se candidatar ao voluntariado e as formas de doação online.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ONG Exemplo</h1>
+            <nav class="nav">
+                <a href="index.html">Início</a>
+                <a href="projetos.html">Projetos e Doação</a>
+                <a href="cadastro.html">Quero Ser Voluntário</a>
+                <a href="index.html#contato" class="btn btn-sucesso">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO PROJETOS (Gestão de Projetos - Visualização) -->
+        <section id="projetos" class="secao">
+            <div class="container">
+                <h2>Projetos de Alto Impacto Social</h2>
+                <p>Nossos projetos são categorizados e monitorados por indicadores de resultados.</p>
+                <div class="cards-grid">
+                    <article class="card">
+                        <img src="https://placehold.co/600x400/007bff/ffffff?text=PROJETO+EDUCACAO" 
+                             data-src="https://placehold.co/600x400/007bff/ffffff?text=EDUCACAO+INFANTIL" 
+                             alt="Crianças em aula de leitura" loading="lazy">
+                        <h3>Acelerando o Futuro (Educação)</h3>
+                        <p>Foco na alfabetização digital e reforço escolar para mais de 500 crianças. Buscamos mentores!</p>
+                        <a href="#" class="btn btn-principal" style="margin-top: 10px;">Ver Detalhes</a>
+                    </article>
+                    
+                    <article class="card">
+                        <img src="https://placehold.co/600x400/28a745/ffffff?text=PROJETO+SAUDE" 
+                             data-src="https://placehold.co/600x400/28a745/ffffff?text=SAUDE+COMUNITARIA" 
+                             alt="Voluntários em campanha de saúde" loading="lazy">
+                        <h3>Viver Bem (Saúde Comunitária)</h3>
+                        <p>Campanhas de vacinação e consultas básicas em áreas rurais. Precisamos de profissionais da saúde.</p>
+                        <a href="#" class="btn btn-principal" style="margin-top: 10px;">Ver Detalhes</a>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://placehold.co/600x400/ffc107/333333?text=PROJETO+MEIO+AMBIENTE" 
+                             data-src="https://placehold.co/600x400/ffc107/333333?text=REFLORESTAMENTO" 
+                             alt="Voluntários plantando árvores" loading="lazy">
+                        <h3>Guardiões da Terra (Sustentabilidade)</h3>
+                        <p>Ações de reflorestamento e conscientização ambiental. Doe para comprar mudas!</p>
+                        <a href="#" class="btn btn-principal" style="margin-top: 10px;">Ver Detalhes</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO VOLUNTARIADO (Engajamento de Voluntários) -->
+        <section id="voluntariado" class="secao" style="background-color: #eef3f7;">
+            <div class="container">
+                <h2>Seja Nosso Voluntário</h2>
+                <p>Mude o mundo usando seu tempo e talento. Oferecemos certificados digitais de participação.</p>
+                <a href="cadastro.html" class="btn btn-principal" style="margin-top: 15px;">Cadastrar-se como Voluntário</a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DOAÇÃO (Captação de Recursos) -->
+        <section id="doar" class="secao">
+            <div class="container">
+                <h2>Apoie Nossa Causa com uma Doação</h2>
+                <p>Veja a meta em tempo real e acompanhe a prestação de contas dos recursos aplicados.</p>
+                <!-- O botão simularia o acesso ao sistema de doações online -->
+                <a href="#" class="btn btn-sucesso" style="margin-top: 15px;">Doar Online Agora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ONG Exemplo. Transparência e Responsabilidade Social.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
