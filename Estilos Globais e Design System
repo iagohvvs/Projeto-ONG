@@ -1,0 +1,341 @@
+/* ------------------------------------------- */
+/* 1. RESET E DESIGN SYSTEM (:ROOT) */
+/* ------------------------------------------- */
+:root {
+    /* ================================================= */
+    /* PALETA DE CORES */
+    /* ================================================= */
+    --cor-primaria: #004d99;     /* Azul Escuro Institucional (Principal) */
+    --cor-secundaria: #ffc40d;   /* Amarelo Vivo (Destaque/Atenção) */
+    --cor-acento: #00a2e8;       /* Azul Claro (Links/Hover/Ação) */
+    
+    --cor-texto-principal: #002e5c; /* Preto/Navy Escuro (Máximo Contraste) */
+    --cor-texto-suave: #333333;   /* Texto comum */
+
+    --cor-fundo-claro: #f4f7f9;    /* Fundo suave (body/seções alternadas) */
+    --cor-fundo-card: #ffffff;     /* Branco Puro (Cartões) */
+
+    --cor-status-sucesso: #28a745; /* Verde (Doação/Ação Positiva) */
+    --cor-status-erro: #dc3545;    /* Vermelho (Erros/Validação) */
+    
+    /* ================================================= */
+    /* TIPOGRAFIA HIERÁRQUICA */
+    /* ================================================= */
+    --fonte-principal: 'Inter', sans-serif;
+
+    --tamanho-h1: 3rem;       /* 48px - Títulos de Página */
+    --tamanho-h2: 2.25rem;    /* 36px - Títulos de Seção */
+    --tamanho-h3: 1.875rem;   /* 30px - Subtítulos de Cartão/Grupo */
+    --tamanho-lg: 1.25rem;    /* 20px - Destaques */
+    --tamanho-base: 1rem;     /* 16px - Corpo do texto */
+    --tamanho-sm: 0.875rem;   /* 14px - Notas/Detalhes */
+    --tamanho-xs: 0.75rem;    /* 12px - Rodapé/Metadados */
+    
+    /* ================================================= */
+    /* ESPAÇAMENTO MODULAR */
+    /* ================================================= */
+    --espaco-xs: 0.5rem;    /* 8px */
+    --espaco-sm: 1rem;      /* 16px */
+    --espaco-md: 1.5rem;    /* 24px */
+    --espaco-lg: 2rem;      /* 32px */
+    --espaco-xl: 3rem;      /* 48px */
+    --espaco-xxl: 4rem;     /* 64px */
+
+    /* Sombras */
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais suave e elevada */
+}
+
+/* Aplicação dos Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    color: var(--cor-texto-suave);
+    background-color: var(--cor-fundo-claro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--tamanho-base); /* Base para todos os textos */
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espaco-lg) 0; /* Padding vertical de 32px */
+}
+
+/* Hierarquia de Títulos */
+h1 {
+    font-size: var(--tamanho-h1);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-md);
+}
+
+h2 {
+    font-size: var(--tamanho-h2);
+    color: var(--cor-texto-principal);
+    margin-bottom: var(--espaco-sm);
+}
+
+h3 {
+    font-size: var(--tamanho-h3);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-xs);
+}
+
+/* Botões Gerais (Usando variáveis de espaçamento e cor) */
+.btn {
+    display: inline-block;
+    padding: var(--espaco-sm) var(--espaco-md); /* 16px vertical, 24px horizontal */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.1s;
+    border: none;
+    cursor: pointer;
+    font-size: var(--tamanho-lg); /* Fonte um pouco maior para botões */
+}
+
+.btn-principal {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-card);
+}
+
+.btn-sucesso {
+    background-color: var(--cor-status-sucesso);
+    color: var(--cor-fundo-card);
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* Efeito mais visível */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------- */
+/* 2. HEADER E NAV */
+/* ------------------------------------------- */
+header {
+    background: var(--cor-primaria);
+    color: var(--cor-fundo-card);
+    padding: var(--espaco-sm) 0;
+    box-shadow: var(--sombra-card);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--espaco-sm) var(--espaco-md); /* Ajuste de padding */
+}
+
+header h1 {
+    font-size: var(--tamanho-h3); /* H1 no header é menor para logo */
+    color: var(--cor-fundo-card);
+    margin-bottom: 0;
+}
+
+nav a {
+    color: var(--cor-fundo-card);
+    text-decoration: none;
+    margin-left: var(--espaco-md); /* 24px de espaçamento entre links */
+    padding: var(--espaco-xs) 0;
+    display: none; 
+}
+
+.nav a.btn-sucesso {
+    display: inline-block;
+    margin-left: var(--espaco-sm); /* 16px de margin */
+}
+
+/* Menu visível em Desktop */
+@media (min-width: 768px) {
+    nav a {
+        display: inline-block;
+    }
+}
+
+/* ------------------------------------------- */
+/* 3. FOOTER */
+/* ------------------------------------------- */
+footer {
+    background: var(--cor-primaria);
+    color: var(--cor-fundo-claro);
+    text-align: center;
+    padding: var(--espaco-md) 0; /* 24px de padding */
+    margin-top: var(--espaco-xl); /* 48px de margin topo */
+    font-size: var(--tamanho-sm);
+}
+
+/* ------------------------------------------- */
+/* 4. LAYOUT DE SEÇÕES */
+/* ------------------------------------------- */
+.secao {
+    padding: var(--espaco-xl) 0; /* 48px de padding vertical */
+    text-align: center;
+}
+
+#hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: var(--tamanho-h1); /* H2 grande na seção principal */
+    margin-bottom: var(--espaco-sm);
+}
+
+#hero p {
+    font-size: var(--tamanho-lg);
+    margin-bottom: var(--espaco-lg);
+    max-width: 800px;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    margin-bottom: var(--espaco-lg);
+}
+
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--espaco-md); /* 24px de gap */
+    margin-top: var(--espaco-lg);
+}
+
+.card {
+    background: var(--cor-fundo-card);
+    padding: var(--espaco-md);
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação sutil */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: var(--espaco-sm);
+}
+
+/* Layout de 2 ou 3 colunas em telas maiores */
+@media (min-width: 600px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--espaco-lg); /* Aumenta o espaçamento entre cards no desktop */
+    }
+}
+
+/* ------------------------------------------- */
+/* 5. ESTILO DO FORMULÁRIO */
+/* ------------------------------------------- */
+.form-cadastro {
+    background: var(--cor-fundo-card);
+    padding: var(--espaco-xl);
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    max-width: 900px;
+    margin: var(--espaco-lg) auto;
+    text-align: left;
+}
+
+.grupo-campos {
+    border: 1px solid var(--cor-fundo-claro);
+    padding: var(--espaco-md);
+    margin-bottom: var(--espaco-lg);
+    border-radius: 8px;
+}
+
+.grupo-campos legend {
+    font-size: var(--tamanho-h3);
+    font-weight: bold;
+    color: var(--cor-acento);
+    padding: 0 var(--espaco-xs);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column; 
+    gap: var(--espaco-sm); 
+    margin-bottom: var(--espaco-sm);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espaco-xs);
+    font-weight: bold;
+    color: var(--cor-texto-principal);
+    font-size: var(--tamanho-sm);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: var(--espaco-sm);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: var(--tamanho-base);
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--cor-acento);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 162, 232, 0.25);
+}
+
+/* Validação Nativa (Acessibilidade e UX) */
+input:invalid:not(:focus):not(:placeholder-shown),
+select:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid var(--cor-status-erro);
+}
+
+input:valid:not(:focus):not(:placeholder-shown),
+select:valid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid var(--cor-status-sucesso);
+}
+
+
+/* Layout de Colunas em Desktop/Tablet */
+@media (min-width: 600px) {
+    .form-row {
+        flex-direction: row; 
+        gap: var(--espaco-md);
+    }
+    
+    .form-col {
+        flex: 1;
+    }
+    
+    /* Regras de espaçamento específicas para o formulário no desktop */
+    .form-cadastro {
+        padding: var(--espaco-xxl);
+    }
+}
